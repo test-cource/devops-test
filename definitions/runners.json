@@ -1,0 +1,19 @@
+[
+  {
+    "name": "runners",
+    "image": "082006649170.dkr.ecr.${var.region}.amazonaws.com/runners:${var.tag}",
+    "cpu": 2048,
+    "memory": 459,
+    "essential": true,
+    "mountPoints" : [
+      {
+        "containerPath" : "/var/www/Zebrah/front",
+        "sourceVolume"  : "front"
+      },
+      {
+        "containerPath" : "/var/www/Zebrah/engine",
+        "sourceVolume"  : "engine"
+      }
+    ]
+  }
+]

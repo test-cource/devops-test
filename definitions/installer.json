@@ -1,0 +1,9 @@
+[
+  {
+    "name": "installer",
+    "image": "082006649170.dkr.ecr.${var.region}.amazonaws.com/installer:${var.tag}",
+    "cpu": 1024,
+    "memory": 459,
+    "essential": true
+  }
+]

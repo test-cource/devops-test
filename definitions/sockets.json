@@ -1,0 +1,35 @@
+[
+  {
+    "name": "sockets",
+    "image": "082006649170.dkr.ecr.${var.region}.amazonaws.com/sockets:${var.tag}",
+    "cpu": 2048,
+    "memory": 459,
+    "essential": true,
+    "logConfiguration": {
+      "logDriver": "json-file",
+      "options": {
+        "max-size": "10m",
+        "max-file": "3"
+      }
+    },
+    "environment": [{
+      "name": "CASSANDRA_KEYSPACE",
+      "value": "minds"},
+  {
+    "name": "CASSANDRA_SERVERS",
+    "value": "10.0.12.80"},
+  {
+    "name": "JWT_SECRET",
+    "value": "97f92d8c8b54b6d6ea51d272fb096a8dd4d223c4dff66bf296c37325bf2396c5b654f28f2ab5f4e899c363d69aefaa44dac60853bef5fb5b8e11a346c6bffe42"},
+  {
+    "name": "PORT",
+    "value": "3030"},
+  {
+    "name": "REDIS_HOST",
+    "value": "127.0.0.1"},
+  {
+    "name": "REDIS_PORT",
+    "value": "6379"}
+]
+}
+]

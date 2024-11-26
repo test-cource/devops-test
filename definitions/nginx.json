@@ -1,0 +1,27 @@
+[
+  {
+    "name": "nginx",
+    "image": "082006649170.dkr.ecr.${var.region}.amazonaws.com/nginx:${var.tag}",
+    "cpu": 2048,
+    "memory": 459,
+    "essential": true,
+    "logConfiguration": {
+      "logDriver": "json-file",
+      "options": {
+        "max-size": "10m",
+        "max-file": "3"
+      }
+    },
+    "environment" : [{
+      "name": "UPSTREAM_ENDPOINT",
+      "value": "127.0.0.1:4200"
+    }
+],
+  "mountPoints" : [
+  {
+    "containerPath" : "/var/www/Zebrah/front",
+    "sourceVolume"  : "front"
+  }
+]
+  }
+]

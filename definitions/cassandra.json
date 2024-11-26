@@ -1,0 +1,27 @@
+[
+  {
+    "name": "cassandra",
+    "image": "082006649170.dkr.ecr.${var.region}.amazonaws.com/cassandra:${var.tag}",
+    "cpu": 2048,
+    "memory": 459,
+    "essential": true,
+    "logConfiguration": {
+      "logDriver": "json-file",
+      "options": {
+        "max-size": "10m",
+        "max-file": "3"
+      }
+    },
+    "environment": [
+      {"name": "CASSANDRA_START_RPC", "value": "true" },
+      {"name": "MAX_HEAP_SIZE", "value": "8G" },
+      {"name": "HEAP_NEWSIZE", "value": "800M" }
+    ],
+    "healthCheck": {
+      "command": ["CMD","cqlsh -e 'DESC TABLE system.batches' || exit 1"],
+      "interval": 15,
+      "timeout": 5,
+      "retries": 10
+    }
+  }
+]

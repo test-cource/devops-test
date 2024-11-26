@@ -1,0 +1,26 @@
+[
+  {
+    "name": "front",
+    "image": "082006649170.dkr.ecr.${var.region}.amazonaws.com/front:${var.tag}",
+    "cpu": 2048,
+    "memory": 459,
+    "essential": true,
+    "logConfiguration": {
+      "logDriver": "json-file",
+      "options": {
+        "max-size": "10m",
+        "max-file": "3"
+      }
+    },
+    "mountPoints" : [
+      {
+        "containerPath" : "/var/www/Zebrah/front",
+        "sourceVolume"  : "front"
+      },
+      {
+        "containerPath" : "/var/www/Zebrah/engine",
+        "sourceVolume"  : "engine"
+      }
+    ]
+  }
+]
